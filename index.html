@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Cent tracker - budgeting app</title>
+  </head>
+  <body>
+    <div class="container">
+      <section class="header">
+        <header>
+          <h1><i class="fa-solid fa-coins"></i>Cent tracker</h1>
+        </header>
+      </section>
+      <section class="add-new-items-section">
+        <form id="expense-form">
+          <div class="form-control">
+            <input
+              type="text"
+              class="form-input"
+              id="expense-input"
+              name="expense-name"
+              placeholder="What did you spend on?"
+              required
+            />
+          </div>
+          <div class="form-control">
+            <input
+              type="number"
+              class="form-input"
+              id="cost-input"
+              name="expense-cost"
+              placeholder="Amount spent?"
+              required
+            />
+          </div>
+          <div class="form-control">
+            <button type="submit" class="btn">
+              Add item
+              <i class="fa-solid fa-square-plus"></i>
+            </button>
+          </div>
+        </form>
+        <section class="filter-clear-section">
+          <button class="btn clear-all-btn">
+            Clear all items <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </section>
+      </section>
+      <article id="total-spent">
+        <div class="total-expenses">
+          Total:<span id="total-amount"> $0</span>
+        </div>
+      </article>
+      <section class="table-section">
+        <table id="expense-table">
+          <thead>
+            <tr id="table-head">
+              <th>Name</th>
+              <th>Cost</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <!-- <tr class="table-item">
+              <td>Groceries</td>
+              <td>$1300</td>
+              <td>9 January 2025</td>
+              <td>
+                <div class="edit-delete-buttons">
+                  <button class="btn edit-btn">
+                    Edit <i class="fa-solid fa-pen"></i>
+                  </button>
+                  <button class="btn delete-btn">
+                    Delete <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr class="table-item">
+              <td>Rent</td>
+              <td>$1500</td>
+              <td>1 February 2025</td>
+              <td>
+                <div class="edit-delete-buttons">
+                  <button class="btn edit-btn">
+                    Edit <i class="fa-solid fa-pen"></i>
+                  </button>
+                  <button class="btn delete-btn">
+                    Delete <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="table-item">
+              <td>Electricity Bill</td>
+              <td>$120</td>
+              <td>5 February 2025</td>
+              <td>
+                <div class="edit-delete-buttons">
+                  <button class="btn edit-btn">
+                    Edit <i class="fa-solid fa-pen"></i>
+                  </button>
+                  <button class="btn delete-btn">
+                    Delete <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="table-item">
+              <td>Internet</td>
+              <td>$60</td>
+              <td>10 February 2025</td>
+              <td>
+                <div class="edit-delete-buttons">
+                  <button class="btn edit-btn">
+                    Edit <i class="fa-solid fa-pen"></i>
+                  </button>
+                  <button class="btn delete-btn">
+                    Delete <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="table-item">
+              <td>Gym Membership</td>
+              <td>$45</td>
+              <td>15 February 2025</td>
+              <td>
+                <div class="edit-delete-buttons">
+                  <button class="btn edit-btn">
+                    Edit <i class="fa-solid fa-pen"></i>
+                  </button>
+                  <button class="btn delete-btn">
+                    Delete <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="table-item">
+              <td>Car Insurance</td>
+              <td>$300</td>
+              <td>20 February 2025</td>
+              <td>
+                <div class="edit-delete-buttons">
+                  <button class="btn edit-btn">
+                    Edit <i class="fa-solid fa-pen"></i>
+                  </button>
+                  <button class="btn delete-btn">
+                    Delete <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr> -->
+          </tbody>
+        </table>
+      </section>
+
+      <section class="modal_section">
+        <div class="overlay">
+          <div class="modal">
+            <p class="message">Are you sure you want to delete this item?</p>
+            <div class="options">
+              <button class="modal_btn yes_btn">Yes</button>
+              <button class="modal_btn no_btn">No</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="modal2_section">
+        <div class="overlay">
+          <div class="modal2">
+            <p class="message">
+              This will delete all items and is irreversible! Continue?
+            </p>
+            <div class="options">
+              <button class="modal2_btn yes_delete_all">Yes</button>
+              <button class="modal2_btn no_delete_nothing">No</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
